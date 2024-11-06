@@ -28,13 +28,7 @@ import java.util.Arrays;
  * @since 1.6
  */
 public class GenerousBeanProcessor extends BeanProcessor {
-
-    /**
-     * Default constructor.
-     */
-    public GenerousBeanProcessor() {
-    }
-
+    
     @Override
     protected int[] mapColumnsToProperties(final ResultSetMetaData rsmd,
             final PropertyDescriptor[] props) throws SQLException {
