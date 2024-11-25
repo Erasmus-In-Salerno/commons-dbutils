@@ -187,6 +187,9 @@
           <targetTests>
             <param>org.apache.commons.dbutils.*</param>
           </targetTests>
+          <outputFormats>
+            <param>HTML</param>
+          </outputFormats>
         </configuration>
       </plugin>
 
