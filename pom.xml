@@ -54,6 +54,11 @@
       <version>5.14.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <version>1.17.1</version>
+    </dependency>
   </dependencies>
 
   <distributionManagement>
@@ -171,6 +176,23 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.17.1</version>
+        <configuration>
+          <targetClasses>
+            <param>org.apache.commons.dbutils.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.apache.commons.dbutils.*</param>
+          </targetTests>
+          <outputFormats>
+            <param>HTML</param>
+          </outputFormats>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
