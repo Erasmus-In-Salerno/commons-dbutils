@@ -22,9 +22,9 @@
     <version>78</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.Erasmus-In-Salerno.commons-dbutils</groupId>
+  <groupId>commons-dbutils</groupId>
   <artifactId>commons-dbutils</artifactId>
-  <version>1.9.0-custom</version>
+  <version>1.9.0-SNAPSHOT</version>
   <name>Apache Commons DbUtils</name>
 
   <inceptionYear>2002</inceptionYear>
@@ -158,6 +158,12 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <excludes>
+            <exclude>.devcontainer/Dockerfile</exclude>
+            <exclude>.devcontainer/docker-compose.yml</exclude>
+          </excludes>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
