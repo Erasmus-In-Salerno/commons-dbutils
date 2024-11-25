@@ -56,9 +56,8 @@
     </dependency>
     <dependency>
       <groupId>org.pitest</groupId>
-      <artifactId>pitest-parent</artifactId>
+      <artifactId>pitest-maven</artifactId>
       <version>1.17.1</version>
-      <type>pom</type>
     </dependency>
   </dependencies>
 
