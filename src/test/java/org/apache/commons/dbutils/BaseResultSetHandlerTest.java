@@ -16,7 +16,9 @@
  */
 package org.apache.commons.dbutils;
 
-import java.sql.SQLException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.sql.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -25,11 +27,7 @@ import java.util.Map;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import static org.mockito.Mockito.*;
-import static org.junit.Assert.*;
-import java.sql.ResultSet;
+
 import org.junit.Before;
 
 public final class BaseResultSetHandlerTest extends BaseTestCase {
@@ -88,6 +86,7 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
             assertTrue(current.containsKey("columnProcessorDoubleTest"));
         }
     }
+
     @Test
     public void testAbsolute() throws SQLException {
         when(mockResultSet.absolute(1)).thenReturn(true);
@@ -568,10 +567,17 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         }
 
         @Test
-        public void testUpdateBlob() throws SQLException {
+        public void testUpdateBlobNullBlob() throws SQLException {
             handler.handle(mockResultSet);
-            handler.updateBlob(1, null);
-            verify(mockResultSet).updateBlob(1, null);
+            handler.updateBlob(1, (Blob) null);
+            verify(mockResultSet).updateBlob(1, (Blob) null);
+        }
+
+        @Test
+        public void testUpdateBlobNullInputStream() throws SQLException {
+            handler.handle(mockResultSet);
+            handler.updateBlob(1, (InputStream) null);
+            verify(mockResultSet).updateBlob(1, (InputStream) null);
         }
 
         @Test
@@ -603,10 +609,17 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         }
 
         @Test
-        public void testUpdateClob() throws SQLException {
+        public void testUpdateClobNullClob() throws SQLException {
             handler.handle(mockResultSet);
-            handler.updateClob(1, null);
-            verify(mockResultSet).updateClob(1, null);
+            handler.updateClob(1, (Clob) null);
+            verify(mockResultSet).updateClob(1, (Clob) null);
+        }
+
+        @Test
+        public void testUpdateClobReader() throws SQLException {
+            handler.handle(mockResultSet);
+            handler.updateClob(1, (Reader) null);
+            verify(mockResultSet).updateClob(1, (Reader) null);
         }
 
         @Test
@@ -652,9 +665,16 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         }
 
         @Test
-        public void testUpdateNClob() throws SQLException {
+        public void testUpdateNClobNullNClob() throws SQLException {
             handler.handle(mockResultSet);
-            handler.updateNClob(1, null);
-            verify(mockResultSet).updateNClob(1, null);
-        }        
+            handler.updateNClob(1, (NClob) null);
+            verify(mockResultSet).updateNClob(1, (NClob) null);
+        }
+
+        @Test
+        public void testUpdateNClobNullReader() throws SQLException {
+            handler.handle(mockResultSet);
+            handler.updateNClob(1, (Reader) null);
+            verify(mockResultSet).updateNClob(1, (Reader) null);
+        }
 }
