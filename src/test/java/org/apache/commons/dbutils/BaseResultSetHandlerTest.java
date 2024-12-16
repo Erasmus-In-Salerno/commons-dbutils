@@ -23,6 +23,14 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+import java.sql.ResultSet;
+import org.junit.Before;
 
 public final class BaseResultSetHandlerTest extends BaseTestCase {
 
