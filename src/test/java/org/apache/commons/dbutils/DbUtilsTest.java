@@ -332,7 +332,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackNull() throws Exception {
-        DbUtils.rollback(null);
+        try {
+            DbUtils.rollback(null);
+        } catch (Exception e) {
+            fail("An exception was thrown when null was passed to rollback: " + e.getMessage());
+        }
     }
 
     @Test
