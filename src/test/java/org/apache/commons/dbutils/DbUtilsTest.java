@@ -348,7 +348,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackQuietlyNull() throws Exception {
-        DbUtils.rollbackQuietly(null);
+        try {
+            DbUtils.rollbackQuietly(null);
+        } catch (Exception e) {
+            fail("Exception was thrown when null was passed to rollbackQuietly: " + e.getMessage());
+        }
     }
 
     @Test
