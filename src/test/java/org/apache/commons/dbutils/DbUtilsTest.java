@@ -431,6 +431,10 @@ public class DbUtilsTest {
 
     @Test
     public void printWarningsWithNullConnectionDoesNotThrowException() {
-        DbUtils.printWarnings(null, new PrintWriter(System.err));
+        try {
+            DbUtils.printWarnings(null, new PrintWriter(System.err));
+        } catch (Exception e) {
+            fail("An exception was thrown: " + e.getMessage());
+        }
     }
 }
