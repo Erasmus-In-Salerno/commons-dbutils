@@ -239,9 +239,11 @@ public class DbUtilsTest {
 
     @Test
     public void testCommitAndCloseQuietlyWithNullDoesNotThrowAnSQLException() {
-
-        DbUtils.commitAndCloseQuietly(null);
-
+        try {
+            DbUtils.commitAndCloseQuietly(null);
+        } catch (Exception e) {
+            fail("An exception was thrown while calling commitAndCloseQuietly with null: " + e.getMessage());
+        }
     }
 
     @Test
