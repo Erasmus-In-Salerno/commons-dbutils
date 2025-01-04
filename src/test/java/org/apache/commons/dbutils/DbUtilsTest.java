@@ -283,7 +283,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseNull() throws Exception {
-        DbUtils.rollbackAndClose(null);
+        try {
+            DbUtils.rollbackAndClose(null);
+        } catch (Exception e) {
+            fail("An exception was thrown while calling rollbackAndClose with null: " + e.getMessage());
+        }
     }
 
     @Test
