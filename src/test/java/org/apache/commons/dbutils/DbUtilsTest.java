@@ -300,7 +300,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseQuietlyNull() throws Exception {
-        DbUtils.rollbackAndCloseQuietly(null);
+        try {
+            DbUtils.rollbackAndCloseQuietly(null);
+        } catch (Exception e) {
+            fail("Exception was thrown when null was passed: " + e.getMessage());
+        }
     }
 
     @Test
