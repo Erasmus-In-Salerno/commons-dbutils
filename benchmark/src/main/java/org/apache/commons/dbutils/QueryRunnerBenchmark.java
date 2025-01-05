@@ -49,17 +49,18 @@ public class QueryRunnerBenchmark {
         mockResultSet = mock(ResultSet.class);
 
         setupConnection();
-        setupPreparedStatements();
+        setupStatements();
         setupResultSetData();
     }
 
     private void setupConnection() throws SQLException {
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
+    }
+    
+    private void setupStatements() throws SQLException {
         when(mockConnection.createStatement()).thenReturn(mockStatement);
         when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
-    }
 
-    private void setupPreparedStatements() throws SQLException {
         when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
         when(mockPreparedStatement.executeUpdate()).thenReturn(1);
         when(mockPreparedStatement.executeBatch()).thenReturn(new int[] { 1, 1, 1 });
@@ -71,9 +72,10 @@ public class QueryRunnerBenchmark {
         when(mockResultSet.next()).thenAnswer(invocation -> {
             return rowCounter.getAndIncrement() < rowCount;
         });
-        when(mockResultSet.getObject(1)).thenReturn("MockValue1");
-        when(mockResultSet.getObject(2)).thenReturn("MockValue2");
-        when(mockResultSet.getObject(3)).thenReturn("MockValue3");
+
+        when(mockResultSet.getObject(1)).thenReturn("one");
+        when(mockResultSet.getObject(2)).thenReturn("two");
+        when(mockResultSet.getObject(3)).thenReturn("three");
     }
 
     @Benchmark
@@ -111,9 +113,9 @@ public class QueryRunnerBenchmark {
     public void benchmarkBatch() throws SQLException {
         queryRunner.batch(mockConnection, "INSERT INTO table (col1, col2) VALUES (?, ?)",
                 new Object[][] {
-                        { "value1", "value2" },
-                        { "value3", "value4" },
-                        { "value5", "value6" }
+                        { "1", "2" },
+                        { "3", "4" },
+                        { "5", "6" }
                 });
     }
 
@@ -129,7 +131,7 @@ public class QueryRunnerBenchmark {
             PreparedStatement ps = mockConnection.prepareStatement(sql);
             for (int i = 0; i < rowCount; i++) {
                 ps.setObject(1, "Value" + i);
-                ps.setObject(2, "OtherValue" + i);
+                ps.setObject(2, "Other Value" + i);
                 ps.addBatch();
             }
             ps.executeBatch();
