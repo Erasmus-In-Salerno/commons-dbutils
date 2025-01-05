@@ -304,19 +304,19 @@ public abstract class AbstractQueryRunner {
             throws SQLException {
         // check the parameter count, if we can
         validateParameterCount(pmd, params);
-    
+
         // nothing to do here
         if (params == null) {
             return;
         }
-    
+
         CallableStatement call = (stmt instanceof CallableStatement) ? (CallableStatement) stmt : null;
-    
+
         for (int i = 0; i < params.length; i++) {
             setParameter(stmt, pmd, call, params[i], i);
         }
     }
-    
+
     private void validateParameterCount(final ParameterMetaData pmd, final Object[] params) throws SQLException {
         if (!pmdKnownBroken && pmd != null) {
             final int stmtCount = pmd.getParameterCount();
@@ -328,7 +328,7 @@ public abstract class AbstractQueryRunner {
             }
         }
     }
-    
+
     private void setParameter(final PreparedStatement stmt, final ParameterMetaData pmd, final CallableStatement call, final Object param, int index) throws SQLException {
         if (param != null) {
             if (call != null && param instanceof OutParameter) {
@@ -340,13 +340,13 @@ public abstract class AbstractQueryRunner {
             setNullParameter(stmt, pmd, index);
         }
     }
-    
+
     private void setNullParameter(final PreparedStatement stmt, final ParameterMetaData pmd, int index) throws SQLException {
         // VARCHAR works with many drivers regardless
         // of the actual column type. Oddly, NULL and
         // OTHER don't work with Oracle's drivers.
         int sqlType = Types.VARCHAR;
-    
+
         if (!pmdKnownBroken) {
             // TODO see DBUTILS-117: does it make sense to catch SQLEx here?
             try {
@@ -358,7 +358,7 @@ public abstract class AbstractQueryRunner {
                 pmdKnownBroken = true;
             }
         }
-    
+
         stmt.setNull(index + 1, sqlType);
     }
 
