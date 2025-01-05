@@ -302,8 +302,22 @@ public abstract class AbstractQueryRunner {
      */
     public void fillStatement(final PreparedStatement stmt, final ParameterMetaData pmd, final Object... params)
             throws SQLException {
-
         // check the parameter count, if we can
+        validateParameterCount(pmd, params);
+
+        // nothing to do here
+        if (params == null) {
+            return;
+        }
+
+        CallableStatement call = (stmt instanceof CallableStatement) ? (CallableStatement) stmt : null;
+
+        for (int i = 0; i < params.length; i++) {
+            setParameter(stmt, pmd, call, params[i], i);
+        }
+    }
+
+    private void validateParameterCount(final ParameterMetaData pmd, final Object[] params) throws SQLException {
         if (!pmdKnownBroken && pmd != null) {
             final int stmtCount = pmd.getParameterCount();
             final int paramsCount = params == null ? 0 : params.length;
@@ -313,43 +327,39 @@ public abstract class AbstractQueryRunner {
                         + stmtCount + ", was given " + paramsCount);
             }
         }
+    }
 
-        // nothing to do here
-        if (params == null) {
-            return;
-        }
-
-        CallableStatement call = null;
-        if (stmt instanceof CallableStatement) {
-            call = (CallableStatement) stmt;
-        }
-
-        for (int i = 0; i < params.length; i++) {
-            if (params[i] != null) {
-                if (call != null && params[i] instanceof OutParameter) {
-                    ((OutParameter<?>) params[i]).register(call, i + 1);
-                } else {
-                    stmt.setObject(i + 1, params[i]);
-                }
+    private void setParameter(final PreparedStatement stmt, final ParameterMetaData pmd, final CallableStatement call, final Object param, int index) throws SQLException {
+        if (param != null) {
+            if (call != null && param instanceof OutParameter) {
+                ((OutParameter<?>) param).register(call, index + 1);
             } else {
-                // VARCHAR works with many drivers regardless
-                // of the actual column type. Oddly, NULL and
-                // OTHER don't work with Oracle's drivers.
-                int sqlType = Types.VARCHAR;
-                if (!pmdKnownBroken) {
-                    // TODO see DBUTILS-117: does it make sense to catch SQLEx here?
-                    try {
-                        /*
-                         * It's not possible for pmdKnownBroken to change from true to false, (once true, always true) so pmd cannot be null here.
-                         */
-                        sqlType = pmd.getParameterType(i + 1);
-                    } catch (final SQLException e) {
-                        pmdKnownBroken = true;
-                    }
-                }
-                stmt.setNull(i + 1, sqlType);
+                stmt.setObject(index + 1, param);
+            }
+        } else {
+            setNullParameter(stmt, pmd, index);
+        }
+    }
+
+    private void setNullParameter(final PreparedStatement stmt, final ParameterMetaData pmd, int index) throws SQLException {
+        // VARCHAR works with many drivers regardless
+        // of the actual column type. Oddly, NULL and
+        // OTHER don't work with Oracle's drivers.
+        int sqlType = Types.VARCHAR;
+
+        if (!pmdKnownBroken) {
+            // TODO see DBUTILS-117: does it make sense to catch SQLEx here?
+            try {
+                /*
+                * It's not possible for pmdKnownBroken to change from true to false, (once true, always true) so pmd cannot be null here.
+                */
+                sqlType = pmd.getParameterType(index + 1);
+            } catch (final SQLException e) {
+                pmdKnownBroken = true;
             }
         }
+
+        stmt.setNull(index + 1, sqlType);
     }
 
     /**
