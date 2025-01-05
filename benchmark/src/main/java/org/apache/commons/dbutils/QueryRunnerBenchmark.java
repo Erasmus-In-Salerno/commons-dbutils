@@ -71,7 +71,9 @@ public class QueryRunnerBenchmark {
         when(mockResultSet.next()).thenAnswer(invocation -> {
             return rowCounter.getAndIncrement() < rowCount;
         });
-        when(mockResultSet.getObject(anyInt())).thenReturn("MockValue");
+        when(mockResultSet.getObject(1)).thenReturn("MockValue1");
+        when(mockResultSet.getObject(2)).thenReturn("MockValue2");
+        when(mockResultSet.getObject(3)).thenReturn("MockValue3");
     }
 
     @Benchmark
@@ -82,6 +84,21 @@ public class QueryRunnerBenchmark {
                         rs.getObject(1);
                     }
                     return null;
+                });
+    }
+
+    @Benchmark
+    public void benchmarkComplexQuery() throws SQLException {
+        queryRunner.query(mockConnection, "SELECT col1, col2, col3 FROM table",
+                rs -> {
+                    StringBuilder resultBuilder = new StringBuilder();
+                    while (rs.next()) {
+                        String col1 = rs.getObject(1).toString();
+                        String col2 = rs.getObject(2).toString();
+                        String col3 = rs.getObject(3).toString();
+                        resultBuilder.append(col1).append(col2).append(col3).reverse();
+                    }
+                    return resultBuilder.toString();
                 });
     }
 
