@@ -116,4 +116,23 @@ public class QueryRunnerBenchmark {
                         { "value5", "value6" }
                 });
     }
+
+    @Benchmark
+    public void benchmarkComplexBatch() throws SQLException {
+        String[] sqlStatements = {
+            "INSERT INTO table1 (col1, col2) VALUES (?, ?)",
+            "UPDATE table2 SET col1 = ? WHERE col2 = ?",
+            "DELETE FROM table3 WHERE col1 = ?"
+        };
+
+        for (String sql : sqlStatements) {
+            PreparedStatement ps = mockConnection.prepareStatement(sql);
+            for (int i = 0; i < rowCount; i++) {
+                ps.setObject(1, "Value" + i);
+                ps.setObject(2, "OtherValue" + i);
+                ps.addBatch();
+            }
+            ps.executeBatch();
+        }
+    }
 }
