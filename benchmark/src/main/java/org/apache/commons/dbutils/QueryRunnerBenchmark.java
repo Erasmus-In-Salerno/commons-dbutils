@@ -37,7 +37,7 @@ public class QueryRunnerBenchmark {
     private Statement mockStatement;
     private ResultSet mockResultSet;
 
-    @Param({ "1" })
+    @Param({ "1", "10", "100" })
     private int rowCount;
 
     @Setup(Level.Iteration)
