@@ -24,7 +24,9 @@ import org.openjdk.jmh.annotations.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.ResultSetMetaData;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Fork(1)
 @BenchmarkMode(Mode.Throughput)
@@ -35,21 +37,32 @@ public class BasicRowProcessorBenchmark {
     private BasicRowProcessor processor;
     private ResultSet mockResultSet;
 
+    @Param({"1", "10", "100"})
+    private int rowCount;
+
     @Setup(Level.Iteration)
     public void setup() throws SQLException {
         processor = new BasicRowProcessor();
         mockResultSet = mock(ResultSet.class);
 
-        when(mockResultSet.getInt("id")).thenReturn(1);
-        when(mockResultSet.getString("name")).thenReturn("Test Name");
-
-        var mockMetaData = mock(java.sql.ResultSetMetaData.class);
+        var mockMetaData = mock(ResultSetMetaData.class);
         when(mockMetaData.getColumnCount()).thenReturn(2);
         when(mockMetaData.getColumnLabel(1)).thenReturn("id");
         when(mockMetaData.getColumnLabel(2)).thenReturn("name");
         when(mockResultSet.getMetaData()).thenReturn(mockMetaData);
 
-        when(mockResultSet.next()).thenReturn(true).thenReturn(false);
+        setupResultSetData(rowCount);
+    }
+
+    private void setupResultSetData(int rows) throws SQLException {
+        var rowCounter = new AtomicInteger(0);
+
+        when(mockResultSet.next()).thenAnswer(invocation -> {
+            return rowCounter.getAndIncrement() < rows;
+        });
+
+        when(mockResultSet.getObject(1)).thenReturn(1);
+        when(mockResultSet.getObject(2)).thenReturn("Name");
     }
 
     @Benchmark
