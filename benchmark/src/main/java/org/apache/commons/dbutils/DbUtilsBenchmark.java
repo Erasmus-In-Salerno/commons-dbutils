@@ -49,4 +49,13 @@ public class DbUtilsBenchmark {
         DbUtils.closeQuietly(mockConnection);
     }
 
+    @Benchmark
+    public void benchmarkCommitAndClose() throws SQLException {
+        DbUtils.commitAndClose(mockConnection);
+    }
+
+    @Benchmark
+    public void benchmarkRollbackAndClose() throws SQLException {
+        DbUtils.rollbackAndClose(mockConnection);
+    }
 }
