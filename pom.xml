@@ -156,6 +156,7 @@
           <excludes>
             <exclude>.devcontainer/Dockerfile</exclude>
             <exclude>.devcontainer/docker-compose.yml</exclude>
+            <exclude>benchmark/dependency-reduced-pom.xml</exclude>
           </excludes>
         </configuration>
       </plugin>
