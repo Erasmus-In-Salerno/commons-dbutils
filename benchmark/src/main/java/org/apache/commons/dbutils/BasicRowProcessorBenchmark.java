@@ -53,12 +53,17 @@ public class BasicRowProcessorBenchmark {
     }
 
     @Benchmark
+    public void benchmarkToArray() throws SQLException {
+        processor.toArray(mockResultSet);
+    }
+
+    @Benchmark
     public void benchmarkToBean() throws SQLException {
         processor.toBean(mockResultSet, BenchmarkBean.class);
     }
 
     @Benchmark
     public void benchmarkToBeanList() throws SQLException {
-        processor.toBeanList(mockResultSet, TestBean.class);
+        processor.toBeanList(mockResultSet, BenchmarkBean.class);
     }
 }
