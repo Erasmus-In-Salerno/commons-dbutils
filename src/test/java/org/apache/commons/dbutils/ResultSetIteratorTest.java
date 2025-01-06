@@ -29,13 +29,15 @@ import org.junit.Test;
  */
 public class ResultSetIteratorTest extends BaseTestCase {
 
-    @Test
     public void testCreatesResultSetIteratorTakingThreeArgumentsAndCallsRemove() {
-
         final ResultSet resultSet = mock(ResultSet.class);
         final ResultSetIterator resultSetIterator = new ResultSetIterator(resultSet, null);
-        resultSetIterator.remove();
 
+        try {
+            resultSetIterator.remove();
+        } catch (RuntimeException e) {
+            fail("RuntimeException should not be thrown during remove(): " + e.getMessage());
+        }
     }
 
     public void testNext() {

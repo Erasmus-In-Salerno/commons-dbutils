@@ -18,6 +18,7 @@ package org.apache.commons.dbutils;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
@@ -60,7 +61,7 @@ public class QueryRunnerTest {
     final class MyBean {
         private int a;
         private double b;
-        private String c;
+        private String c = "";
 
         public int getA() {
             return a;
@@ -712,6 +713,13 @@ public class QueryRunnerTest {
         final MyBean bean = new MyBean();
         when(meta.getParameterCount()).thenReturn(3);
         runner.fillStatementWithBean(prepStmt, bean, "a", "b", "c");
+    }
+    @Test
+    public void testFillStatementWithBean2() throws Exception {
+        final MyBean bean = new MyBean();
+        when(meta.getParameterCount()).thenReturn(3);
+        runner.fillStatementWithBean(prepStmt, bean, "a", "b", "c");
+        verify(prepStmt, times(3)).setObject(anyInt(), any());
     }
 
     @Test(expected = NullPointerException.class)

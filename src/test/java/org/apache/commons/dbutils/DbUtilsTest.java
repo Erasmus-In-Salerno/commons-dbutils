@@ -239,9 +239,11 @@ public class DbUtilsTest {
 
     @Test
     public void testCommitAndCloseQuietlyWithNullDoesNotThrowAnSQLException() {
-
-        DbUtils.commitAndCloseQuietly(null);
-
+        try {
+            DbUtils.commitAndCloseQuietly(null);
+        } catch (Exception e) {
+            fail("An exception was thrown while calling commitAndCloseQuietly with null: " + e.getMessage());
+        }
     }
 
     @Test
@@ -281,7 +283,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseNull() throws Exception {
-        DbUtils.rollbackAndClose(null);
+        try {
+            DbUtils.rollbackAndClose(null);
+        } catch (Exception e) {
+            fail("An exception was thrown while calling rollbackAndClose with null: " + e.getMessage());
+        }
     }
 
     @Test
@@ -294,7 +300,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseQuietlyNull() throws Exception {
-        DbUtils.rollbackAndCloseQuietly(null);
+        try {
+            DbUtils.rollbackAndCloseQuietly(null);
+        } catch (Exception e) {
+            fail("Exception was thrown when null was passed: " + e.getMessage());
+        }
     }
 
     @Test
@@ -322,7 +332,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackNull() throws Exception {
-        DbUtils.rollback(null);
+        try {
+            DbUtils.rollback(null);
+        } catch (Exception e) {
+            fail("An exception was thrown when null was passed to rollback: " + e.getMessage());
+        }
     }
 
     @Test
@@ -334,7 +348,11 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackQuietlyNull() throws Exception {
-        DbUtils.rollbackQuietly(null);
+        try {
+            DbUtils.rollbackQuietly(null);
+        } catch (Exception e) {
+            fail("Exception was thrown when null was passed to rollbackQuietly: " + e.getMessage());
+        }
     }
 
     @Test
