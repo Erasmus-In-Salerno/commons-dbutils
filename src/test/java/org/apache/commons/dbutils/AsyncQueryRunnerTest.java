@@ -487,4 +487,27 @@ public class AsyncQueryRunnerTest {
     public void testTooManyParamsUpdate() throws Exception {
         callUpdateWithException("unit", "test", "fail");
     }
+
+    @Test
+    public void testQueryCallableStatementCall() throws Exception {
+
+        String sql = "SELECT * FROM table";
+        Object[] params = new Object[]{1, "Test"};
+        boolean closeConn = true;
+        BaseResultSetHandler<String> handler = new BaseResultSetHandler<String>() {
+            @Override
+            public String handle() throws SQLException {
+                return getString("columnLabel");
+            }
+        };
+
+        when(prepStmt.executeQuery()).thenReturn(results);
+
+        // it is assumed that there is a createQueryCallableStatement method in the AsyncQueryRunner class.
+        AsyncQueryRunner.QueryCallableStatement<String> instance = runner.new QueryCallableStatement<>(conn, closeConn, prepStmt, handler, sql, params);
+        instance.call();
+
+        verify(prepStmt, times(1)).executeQuery();
+        verify(conn, times(1)).close();
+    }
 }
