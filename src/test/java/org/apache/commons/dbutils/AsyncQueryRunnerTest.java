@@ -379,7 +379,7 @@ public class AsyncQueryRunnerTest {
         runner.insert(conn, "4", handler, "param1");
 
         // give the Executor time to submit all insert statements. Otherwise the following verify statements will fail from time to time.
-        TimeUnit.MILLISECONDS.sleep(50);
+        TimeUnit.MILLISECONDS.sleep(200);
 
         verify(mockQueryRunner).insert("1", handler);
         verify(mockQueryRunner).insert("2", handler, "param1");
