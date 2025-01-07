@@ -64,7 +64,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
 
     }
 
-    @Test
     public void testHandleWithoutExplicitResultSetInvocation() throws Exception {
         final Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -84,7 +83,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         }
     }
 
-    @Test
     public void testGetDouble() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -97,7 +95,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDouble(1);
     }
 
-    @Test
     public void testGetBigDecimal() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -110,7 +107,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBigDecimal(1);
     }
 
-    @Test
     public void testGetTimestamp() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -123,7 +119,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTimestamp(1);
     }
 
-    @Test
     public void testMoveToCurrentRow() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -136,7 +131,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).moveToCurrentRow();
     }
 
-    @Test
     public void testMoveToInsertRow() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -149,7 +143,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).moveToInsertRow();
     }
 
-    @Test
     public void testUpdateNCharacterStream() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -162,7 +155,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream(1, (Reader) null);
     }
 
-    @Test
     public void testSetFetchSize() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -175,7 +167,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).setFetchSize(1);
     }
 
-    @Test
     public void testGetObject() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -188,7 +179,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getObject(1);
     }
 
-    @Test
     public void testGetInt() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -201,7 +191,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getInt(1);
     }
 
-    @Test
     public void testGetRef() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -214,7 +203,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getRef(1);
     }
 
-    @Test
     public void testGetRow() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -227,7 +215,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getRow();
     }
 
-    @Test
     public void testGetURL() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -240,7 +227,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getURL(1);
     }
 
-    @Test
     public void testUpdateBigDecimal() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -253,7 +239,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBigDecimal(1, null);
     }
 
-    @Test
     public void testIsLast() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -266,7 +251,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isLast();
     }
 
-    @Test
     public void testGetSQLXML() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -279,7 +263,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getSQLXML(1);
     }
 
-    @Test
     public void testUpdateClobReader() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -292,7 +275,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob(1, (Reader) null);
     }
 
-    @Test
     public void testGetBinaryStream() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -305,7 +287,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBinaryStream(1);
     }
 
-    @Test
     public void testGetString() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -318,7 +299,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getString(1);
     }
 
-    @Test
     public void testIsAfterLast() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -331,7 +311,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isAfterLast();
     }
 
-    @Test
     public void testUpdateBinaryStream() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -344,7 +323,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBinaryStream(1, (InputStream) null);
     }
 
-    @Test
     public void testGetNString() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -357,7 +335,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNString(1);
     }
 
-    @Test
     public void testUpdateBlobNullBlob() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -370,7 +347,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob(1, (Blob) null);
     }
 
-    @Test
     public void testIsFirst() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -383,7 +359,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isFirst();
     }
 
-    @Test
     public void testGetCursorName() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -396,7 +371,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getCursorName();
     }
 
-    @Test
     public void testUnwrap() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -409,7 +383,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).unwrap(ResultSet.class);
     }
 
-    @Test
     public void testUpdateClobNullClob() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -422,7 +395,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob(1, (Clob) null);
     }
 
-    @Test
     public void testGetWarnings() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -435,7 +407,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getWarnings();
     }
 
-    @Test
     public void testGetNCharacterStream() throws SQLException {
         BaseResultSetHandler handler = new BaseResultSetHandler() {
             @Override
@@ -448,7 +419,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNCharacterStream(1);
     }
 
-    @Test
     public void testAbsoluteMovesToCorrectRow() throws SQLException {
         when(mockResultSet.absolute(1)).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -461,7 +431,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).absolute(1);
     }
 
-    @Test
     public void testAbsoluteReturnsFalseForInvalidRow() throws SQLException {
         when(mockResultSet.absolute(-1)).thenReturn(false);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -474,7 +443,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).absolute(-1);
     }
 
-    @Test
     public void testAbsoluteThrowsSQLException() throws SQLException {
         when(mockResultSet.absolute(1)).thenThrow(new SQLException("Test Exception"));
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -487,7 +455,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).absolute(1);
     }
 
-    @Test
     public void testAfterLastMovesCursorToAfterLastRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -500,7 +467,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).afterLast();
     }
 
-    @Test
     public void testBeforeFirstMovesCursorToBeforeFirstRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -513,7 +479,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).beforeFirst();
     }
 
-    @Test
     public void testCancelRowUpdatesCancelsUpdates() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -526,7 +491,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).cancelRowUpdates();
     }
 
-    @Test
     public void testClearWarningsClearsAllWarnings() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -539,7 +503,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).clearWarnings();
     }
 
-    @Test
     public void testCloseClosesResultSet() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -552,7 +515,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).close();
     }
 
-    @Test
     public void testDeleteRowDeletesCurrentRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -565,7 +527,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).deleteRow();
     }
 
-    @Test
     public void testFindColumnReturnsColumnIndex() throws SQLException {
         when(mockResultSet.findColumn("columnLabel")).thenReturn(1);
         BaseResultSetHandler<Integer> handler = new BaseResultSetHandler<Integer>() {
@@ -578,7 +539,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).findColumn("columnLabel");
     }
 
-    @Test
     public void testFirstMovesCursorToFirstRow() throws SQLException {
         when(mockResultSet.first()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -591,7 +551,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).first();
     }
 
-    @Test
     public void testInsertRowInsertsNewRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -604,7 +563,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).insertRow();
     }
 
-    @Test
     public void testIsBeforeFirstReturnsTrueIfBeforeFirstRow() throws SQLException {
         when(mockResultSet.isBeforeFirst()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -617,7 +575,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isBeforeFirst();
     }
 
-    @Test
     public void testIsClosedReturnsTrueIfResultSetIsClosed() throws SQLException {
         when(mockResultSet.isClosed()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -630,7 +587,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isClosed();
     }
 
-    @Test
     public void testLastMovesCursorToLastRow() throws SQLException {
         when(mockResultSet.last()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -643,7 +599,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).last();
     }
 
-    @Test
     public void testNextMovesCursorToNextRow() throws SQLException {
         when(mockResultSet.next()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -656,7 +611,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).next();
     }
 
-    @Test
     public void testPreviousMovesCursorToPreviousRow() throws SQLException {
         when(mockResultSet.previous()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -669,7 +623,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).previous();
     }
 
-    @Test
     public void testRefreshRowRefreshesCurrentRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -682,7 +635,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).refreshRow();
     }
 
-    @Test
     public void testRowDeletedReturnsTrueIfRowDeleted() throws SQLException {
         when(mockResultSet.rowDeleted()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -695,7 +647,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowDeleted();
     }
 
-    @Test
     public void testRowInsertedReturnsTrueIfRowInserted() throws SQLException {
         when(mockResultSet.rowInserted()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -708,7 +659,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowInserted();
     }
 
-    @Test
     public void testRowUpdatedReturnsTrueIfRowUpdated() throws SQLException {
         when(mockResultSet.rowUpdated()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -721,7 +671,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowUpdated();
     }
 
-    @Test
     public void testSetFetchDirectionSetsFetchDirection() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -734,7 +683,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).setFetchDirection(ResultSet.FETCH_FORWARD);
     }
 
-    @Test
     public void testUpdateRowUpdatesCurrentRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -747,7 +695,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRow();
     }
 
-    @Test
     public void testWasNullReturnsTrueIfLastColumnWasNull() throws SQLException {
         when(mockResultSet.wasNull()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -760,7 +707,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).wasNull();
     }
 
-    @Test
     public void testGetConcurrency() throws SQLException {
         when(mockResultSet.getConcurrency()).thenReturn(ResultSet.CONCUR_READ_ONLY);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -773,7 +719,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getConcurrency();
     }
 
-    @Test
     public void testGetDateByIndex() throws SQLException {
         Date date = new Date(System.currentTimeMillis());
         when(mockResultSet.getDate(1)).thenReturn(date);
@@ -787,7 +732,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDate(1);
     }
 
-    @Test
     public void testGetDateByLabel() throws SQLException {
         Date date = new Date(System.currentTimeMillis());
         when(mockResultSet.getDate("label")).thenReturn(date);
@@ -801,7 +745,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDate("label");
     }
 
-    @Test
     public void testGetDoubleByIndex() throws SQLException {
         when(mockResultSet.getDouble(1)).thenReturn(1.23);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -814,7 +757,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDouble(1);
     }
 
-    @Test
     public void testGetDoubleByLabel() throws SQLException {
         when(mockResultSet.getDouble("label")).thenReturn(1.23);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -827,7 +769,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDouble("label");
     }
 
-    @Test
     public void testGetFetchDirection() throws SQLException {
         when(mockResultSet.getFetchDirection()).thenReturn(ResultSet.FETCH_FORWARD);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -840,7 +781,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getFetchDirection();
     }
 
-    @Test
     public void testGetFetchSize() throws SQLException {
         when(mockResultSet.getFetchSize()).thenReturn(10);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -853,7 +793,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getFetchSize();
     }
 
-    @Test
     public void testGetFloatByIndex() throws SQLException {
         when(mockResultSet.getFloat(1)).thenReturn(1.23f);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -866,7 +805,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getFloat(1);
     }
 
-    @Test
     public void testGetFloatByLabel() throws SQLException {
         when(mockResultSet.getFloat("label")).thenReturn(1.23f);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -879,7 +817,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getFloat("label");
     }
 
-    @Test
     public void testGetHoldability() throws SQLException {
         when(mockResultSet.getHoldability()).thenReturn(ResultSet.HOLD_CURSORS_OVER_COMMIT);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -892,7 +829,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getHoldability();
     }
 
-    @Test
     public void testGetIntByIndex() throws SQLException {
         when(mockResultSet.getInt(1)).thenReturn(123);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -905,7 +841,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getInt(1);
     }
 
-    @Test
     public void testGetIntByLabel() throws SQLException {
         when(mockResultSet.getInt("label")).thenReturn(123);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -918,7 +853,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getInt("label");
     }
 
-    @Test
     public void testGetLongByIndex() throws SQLException {
         when(mockResultSet.getLong(1)).thenReturn(123L);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -931,7 +865,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getLong(1);
     }
 
-    @Test
     public void testGetLongByLabel() throws SQLException {
         when(mockResultSet.getLong("label")).thenReturn(123L);
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -944,7 +877,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getLong("label");
     }
 
-    @Test
     public void testGetMetaData() throws SQLException {
         ResultSetMetaData metaData = mock(ResultSetMetaData.class);
         when(mockResultSet.getMetaData()).thenReturn(metaData);
@@ -958,7 +890,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getMetaData();
     }
 
-    @Test
     public void testGetNCharacterStreamByIndex() throws SQLException {
         Reader reader = mock(Reader.class);
         when(mockResultSet.getNCharacterStream(1)).thenReturn(reader);
@@ -972,7 +903,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNCharacterStream(1);
     }
 
-    @Test
     public void testGetNCharacterStreamByLabel() throws SQLException {
         Reader reader = mock(Reader.class);
         when(mockResultSet.getNCharacterStream("label")).thenReturn(reader);
@@ -986,7 +916,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNCharacterStream("label");
     }
 
-    @Test
     public void testGetNClobByIndex() throws SQLException {
         NClob nClob = mock(NClob.class);
         when(mockResultSet.getNClob(1)).thenReturn(nClob);
@@ -1000,7 +929,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNClob(1);
     }
 
-    @Test
     public void testGetNClobByLabel() throws SQLException {
         NClob nClob = mock(NClob.class);
         when(mockResultSet.getNClob("label")).thenReturn(nClob);
@@ -1014,7 +942,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNClob("label");
     }
 
-    @Test
     public void testGetNStringByIndex() throws SQLException {
         when(mockResultSet.getNString(1)).thenReturn("nString");
         BaseResultSetHandler handler = new BaseResultSetHandler() {
@@ -1027,7 +954,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getNString(1);
     }
 
-    @Test
     public void testUpdateNullByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1040,7 +966,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNull(1);
     }
 
-    @Test
     public void testUpdateNullByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1053,7 +978,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNull("columnLabel");
     }
 
-    @Test
     public void testUpdateObjectByIndex() throws SQLException {
         Object obj = new Object();
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1067,7 +991,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateObject(1, obj);
     }
 
-    @Test
     public void testUpdateObjectByIndexWithScale() throws SQLException {
         Object obj = new Object();
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1081,7 +1004,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateObject(1, obj, 10);
     }
 
-    @Test
     public void testUpdateObjectByLabel() throws SQLException {
         Object obj = new Object();
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1095,7 +1017,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateObject("columnLabel", obj);
     }
 
-    @Test
     public void testUpdateObjectByLabelWithScale() throws SQLException {
         Object obj = new Object();
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1109,7 +1030,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateObject("columnLabel", obj, 10);
     }
 
-    @Test
     public void testUpdateRefByIndex() throws SQLException {
         Ref ref = mock(Ref.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1123,7 +1043,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRef(1, ref);
     }
 
-    @Test
     public void testUpdateRefByLabel() throws SQLException {
         Ref ref = mock(Ref.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1137,7 +1056,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRef("columnLabel", ref);
     }
 
-    @Test
     public void testUpdateRowIdByIndex() throws SQLException {
         RowId rowId = mock(RowId.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1151,7 +1069,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRowId(1, rowId);
     }
 
-    @Test
     public void testUpdateRowIdByLabel() throws SQLException {
         RowId rowId = mock(RowId.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1165,7 +1082,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRowId("columnLabel", rowId);
     }
 
-    @Test
     public void testUpdateShortByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1178,7 +1094,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateShort(1, (short) 1);
     }
 
-    @Test
     public void testUpdateShortByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1191,7 +1106,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateShort("columnLabel", (short) 1);
     }
 
-    @Test
     public void testUpdateSQLXMLByIndex() throws SQLException {
         SQLXML sqlxml = mock(SQLXML.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1205,7 +1119,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateSQLXML(1, sqlxml);
     }
 
-    @Test
     public void testUpdateSQLXMLByLabel() throws SQLException {
         SQLXML sqlxml = mock(SQLXML.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1219,7 +1132,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateSQLXML("columnLabel", sqlxml);
     }
 
-    @Test
     public void testUpdateStringByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1232,7 +1144,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateString(1, "string");
     }
 
-    @Test
     public void testUpdateStringByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1245,7 +1156,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateString("columnLabel", "string");
     }
 
-    @Test
     public void testUpdateTimeByIndex() throws SQLException {
         Time time = new Time(System.currentTimeMillis());
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1259,7 +1169,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateTime(1, time);
     }
 
-    @Test
     public void testUpdateTimeByLabel() throws SQLException {
         Time time = new Time(System.currentTimeMillis());
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1273,7 +1182,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateTime("columnLabel", time);
     }
 
-    @Test
     public void testUpdateTimestampByIndex() throws SQLException {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1287,7 +1195,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateTimestamp(1, timestamp);
     }
 
-    @Test
     public void testUpdateTimestampByLabel() throws SQLException {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1301,7 +1208,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateTimestamp("columnLabel", timestamp);
     }
 
-    @Test
     public void testRefreshRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1314,7 +1220,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).refreshRow();
     }
 
-    @Test
     public void testRelative() throws SQLException {
         when(mockResultSet.relative(1)).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -1327,7 +1232,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).relative(1);
     }
 
-    @Test
     public void testRowDeleted() throws SQLException {
         when(mockResultSet.rowDeleted()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -1340,7 +1244,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowDeleted();
     }
 
-    @Test
     public void testRowInserted() throws SQLException {
         when(mockResultSet.rowInserted()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -1353,7 +1256,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowInserted();
     }
 
-    @Test
     public void testRowUpdated() throws SQLException {
         when(mockResultSet.rowUpdated()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -1366,7 +1268,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).rowUpdated();
     }
 
-    @Test
     public void testSetFetchDirection() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1379,7 +1280,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).setFetchDirection(ResultSet.FETCH_FORWARD);
     }
 
-    @Test
     public void testUpdateArrayByIndex() throws SQLException {
         Array array = mock(Array.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1393,7 +1293,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateArray(1, array);
     }
 
-    @Test
     public void testUpdateArrayByLabel() throws SQLException {
         Array array = mock(Array.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1407,7 +1306,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateArray("columnLabel", array);
     }
 
-    @Test
     public void testUpdateAsciiStreamByIndex() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1421,7 +1319,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateAsciiStream(1, inputStream);
     }
 
-    @Test
     public void testUpdateAsciiStreamByLabel() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1435,7 +1332,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateAsciiStream("columnLabel", inputStream);
     }
 
-    @Test
     public void testUpdateBigDecimalByIndex() throws SQLException {
         BigDecimal bigDecimal = new BigDecimal("123.45");
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1449,7 +1345,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBigDecimal(1, bigDecimal);
     }
 
-    @Test
     public void testUpdateBigDecimalByLabel() throws SQLException {
         BigDecimal bigDecimal = new BigDecimal("123.45");
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1463,7 +1358,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBigDecimal("columnLabel", bigDecimal);
     }
 
-    @Test
     public void testUpdateBinaryStreamByIndex() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1477,7 +1371,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBinaryStream(1, inputStream);
     }
 
-    @Test
     public void testUpdateBinaryStreamByLabel() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1491,7 +1384,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBinaryStream("columnLabel", inputStream);
     }
 
-    @Test
     public void testUpdateBlobByIndex() throws SQLException {
         Blob blob = mock(Blob.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1505,7 +1397,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob(1, blob);
     }
 
-    @Test
     public void testUpdateBlobByLabel() throws SQLException {
         Blob blob = mock(Blob.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1519,7 +1410,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob("columnLabel", blob);
     }
 
-    @Test
     public void testUpdateBooleanByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1532,7 +1422,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBoolean(1, true);
     }
 
-    @Test
     public void testUpdateBooleanByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1545,7 +1434,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBoolean("columnLabel", true);
     }
 
-    @Test
     public void testUpdateByteByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1558,7 +1446,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateByte(1, (byte) 1);
     }
 
-    @Test
     public void testUpdateByteByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1571,7 +1458,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateByte("columnLabel", (byte) 1);
     }
 
-    @Test
     public void testUpdateDoubleByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1584,7 +1470,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateDouble("columnLabel", 1.23);
     }
 
-    @Test
     public void testUpdateFloatByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1597,7 +1482,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateFloat(1, 1.23f);
     }
 
-    @Test
     public void testUpdateFloatByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1610,7 +1494,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateFloat("columnLabel", 1.23f);
     }
 
-    @Test
     public void testUpdateIntByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1623,7 +1506,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateInt(1, 123);
     }
 
-    @Test
     public void testUpdateIntByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1636,7 +1518,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateInt("columnLabel", 123);
     }
 
-    @Test
     public void testUpdateLongByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1649,7 +1530,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateLong(1, 123L);
     }
 
-    @Test
     public void testUpdateLongByLabel() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1662,7 +1542,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateLong("columnLabel", 123L);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByIndex() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1676,7 +1555,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream(1, reader);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByIndexWithLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1690,7 +1568,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream(1, reader, 100L);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByLabel() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1704,7 +1581,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream("columnLabel", reader);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByLabelWithLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1718,7 +1594,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream("columnLabel", reader, 100L);
     }
 
-    @Test
     public void testUpdateNClobByIndex() throws SQLException {
         NClob nClob = mock(NClob.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1732,7 +1607,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob(1, nClob);
     }
 
-    @Test
     public void testUpdateNClobByIndexWithReader() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1746,7 +1620,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob(1, reader);
     }
 
-    @Test
     public void testUpdateNClobByIndexWithReaderAndLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1760,7 +1633,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob(1, reader, 100L);
     }
 
-    @Test
     public void testUpdateNClobByLabel() throws SQLException {
         NClob nClob = mock(NClob.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1774,7 +1646,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob("columnLabel", nClob);
     }
 
-    @Test
     public void testUpdateNClobByLabelWithReader() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1788,7 +1659,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob("columnLabel", reader);
     }
 
-    @Test
     public void testUpdateNClobByLabelWithReaderAndLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1802,7 +1672,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNClob("columnLabel", reader, 100L);
     }
 
-    @Test
     public void testUpdateNStringByIndex() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1815,7 +1684,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNString(1, "nString");
     }
 
-    @Test
     public void testUpdateRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -1828,7 +1696,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateRow();
     }
 
-    @Test
     public void testUpdateAsciiStreamByIndexWithLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1842,7 +1709,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateAsciiStream(1, inputStream, 100L);
     }
 
-    @Test
     public void testUpdateAsciiStreamByLabelWithLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1856,7 +1722,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateAsciiStream("columnLabel", inputStream, 100L);
     }
 
-    @Test
     public void testUpdateBinaryStreamByIndexWithLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1870,7 +1735,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBinaryStream(1, inputStream, 100L);
     }
 
-    @Test
     public void testUpdateBinaryStreamByLabelWithLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1884,7 +1748,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBinaryStream("columnLabel", inputStream, 100L);
     }
 
-    @Test
     public void testUpdateBlobByIndexWithInputStream() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1898,7 +1761,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob(1, inputStream);
     }
 
-    @Test
     public void testUpdateBlobByIndexWithInputStreamAndLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1912,7 +1774,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob(1, inputStream, 100L);
     }
 
-    @Test
     public void testUpdateBlobByLabelWithInputStream() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1926,7 +1787,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob("columnLabel", inputStream);
     }
 
-    @Test
     public void testUpdateBlobByLabelWithInputStreamAndLength() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1940,7 +1800,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateBlob("columnLabel", inputStream, 100L);
     }
 
-    @Test
     public void testUpdateCharacterStreamByIndex() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1954,7 +1813,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateCharacterStream(1, reader);
     }
 
-    @Test
     public void testUpdateCharacterStreamByIndexWithLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1968,7 +1826,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateCharacterStream(1, reader, 100L);
     }
 
-    @Test
     public void testUpdateCharacterStreamByLabel() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1982,7 +1839,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateCharacterStream("columnLabel", reader);
     }
 
-    @Test
     public void testUpdateCharacterStreamByLabelWithLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -1996,7 +1852,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateCharacterStream("columnLabel", reader, 100L);
     }
 
-    @Test
     public void testUpdateClobByIndexWithReader() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2010,7 +1865,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob(1, reader);
     }
 
-    @Test
     public void testUpdateClobByIndexWithReaderAndLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2024,7 +1878,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob(1, reader, 100L);
     }
 
-    @Test
     public void testUpdateClobByLabelWithReader() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2038,7 +1891,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob("columnLabel", reader);
     }
 
-    @Test
     public void testUpdateClobByLabelWithReaderAndLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2052,7 +1904,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateClob("columnLabel", reader, 100L);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByLabelWithReader() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2066,7 +1917,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream("columnLabel", reader);
     }
 
-    @Test
     public void testUpdateNCharacterStreamByLabelWithReaderAndLength() throws SQLException {
         Reader reader = mock(Reader.class);
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
@@ -2080,7 +1930,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).updateNCharacterStream("columnLabel", reader, 100L);
     }
 
-    @Test
     public void testIsWrapperFor() throws SQLException {
         when(mockResultSet.isWrapperFor(ResultSet.class)).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2093,7 +1942,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isWrapperFor(ResultSet.class);
     }
 
-    @Test
     public void testWasNull() throws SQLException {
         when(mockResultSet.wasNull()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2106,7 +1954,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).wasNull();
     }
 
-    @Test
     public void testGetAsciiStreamByIndex() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getAsciiStream(1)).thenReturn(inputStream);
@@ -2120,7 +1967,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getAsciiStream(1);
     }
 
-    @Test
     public void testGetAsciiStreamByLabel() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getAsciiStream("columnLabel")).thenReturn(inputStream);
@@ -2134,7 +1980,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getAsciiStream("columnLabel");
     }
 
-    @Test
     public void testGetBigDecimalByIndex() throws SQLException {
         BigDecimal bigDecimal = new BigDecimal("123.45");
         when(mockResultSet.getBigDecimal(1)).thenReturn(bigDecimal);
@@ -2148,7 +1993,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBigDecimal(1);
     }
 
-    @Test
     public void testGetBigDecimalByLabel() throws SQLException {
         BigDecimal bigDecimal = new BigDecimal("123.45");
         when(mockResultSet.getBigDecimal("columnLabel")).thenReturn(bigDecimal);
@@ -2162,7 +2006,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBigDecimal("columnLabel");
     }
 
-    @Test
     public void testGetBinaryStreamByIndex() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getBinaryStream(1)).thenReturn(inputStream);
@@ -2176,7 +2019,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBinaryStream(1);
     }
 
-    @Test
     public void testGetBinaryStreamByLabel() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getBinaryStream("columnLabel")).thenReturn(inputStream);
@@ -2190,7 +2032,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBinaryStream("columnLabel");
     }
 
-    @Test
     public void testGetBooleanByIndex() throws SQLException {
         when(mockResultSet.getBoolean(1)).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2203,7 +2044,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBoolean(1);
     }
 
-    @Test
     public void testGetBooleanByLabel() throws SQLException {
         when(mockResultSet.getBoolean("columnLabel")).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2216,7 +2056,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBoolean("columnLabel");
     }
 
-    @Test
     public void testGetByteByIndex() throws SQLException {
         when(mockResultSet.getByte(1)).thenReturn((byte) 1);
         BaseResultSetHandler<Byte> handler = new BaseResultSetHandler<Byte>() {
@@ -2229,7 +2068,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getByte(1);
     }
 
-    @Test
     public void testGetByteByLabel() throws SQLException {
         when(mockResultSet.getByte("columnLabel")).thenReturn((byte) 1);
         BaseResultSetHandler<Byte> handler = new BaseResultSetHandler<Byte>() {
@@ -2242,7 +2080,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getByte("columnLabel");
     }
 
-    @Test
     public void testGetBytesByIndex() throws SQLException {
         byte[] bytes = new byte[]{1, 2, 3};
         when(mockResultSet.getBytes(1)).thenReturn(bytes);
@@ -2256,7 +2093,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBytes(1);
     }
 
-    @Test
     public void testGetBytesByLabel() throws SQLException {
         byte[] bytes = new byte[]{1, 2, 3};
         when(mockResultSet.getBytes("columnLabel")).thenReturn(bytes);
@@ -2270,7 +2106,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBytes("columnLabel");
     }
 
-    @Test
     public void testGetCharacterStreamByIndex() throws SQLException {
         Reader reader = mock(Reader.class);
         when(mockResultSet.getCharacterStream(1)).thenReturn(reader);
@@ -2284,7 +2119,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getCharacterStream(1);
     }
 
-    @Test
     public void testGetCharacterStreamByLabel() throws SQLException {
         Reader reader = mock(Reader.class);
         when(mockResultSet.getCharacterStream("columnLabel")).thenReturn(reader);
@@ -2298,7 +2132,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getCharacterStream("columnLabel");
     }
 
-    @Test
     public void testGetClobByIndex() throws SQLException {
         Clob clob = mock(Clob.class);
         when(mockResultSet.getClob(1)).thenReturn(clob);
@@ -2312,7 +2145,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getClob(1);
     }
 
-    @Test
     public void testGetClobByLabel() throws SQLException {
         Clob clob = mock(Clob.class);
         when(mockResultSet.getClob("columnLabel")).thenReturn(clob);
@@ -2326,7 +2158,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getClob("columnLabel");
     }
 
-    @Test
     public void testGetDateByIndexWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Date date = new Date(System.currentTimeMillis());
@@ -2341,7 +2172,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDate(1, cal);
     }
 
-    @Test
     public void testGetDateByLabelWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Date date = new Date(System.currentTimeMillis());
@@ -2356,7 +2186,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getDate("columnLabel", cal);
     }
 
-    @Test
     public void testGetBlobByIndex() throws SQLException {
         Blob blob = mock(Blob.class);
         when(mockResultSet.getBlob(1)).thenReturn(blob);
@@ -2370,7 +2199,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBlob(1);
     }
 
-    @Test
     public void testGetBlobByLabel() throws SQLException {
         Blob blob = mock(Blob.class);
         when(mockResultSet.getBlob("columnLabel")).thenReturn(blob);
@@ -2384,7 +2212,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getBlob("columnLabel");
     }
 
-    @Test
     public void testGetObjectByIndexWithMap() throws SQLException {
         Map<String, Class<?>> map = new HashMap<>();
         Object obj = new Object();
@@ -2399,7 +2226,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getObject(1, map);
     }
 
-    @Test
     public void testGetObjectByLabelWithMap() throws SQLException {
         Map<String, Class<?>> map = new HashMap<>();
         Object obj = new Object();
@@ -2414,7 +2240,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getObject("columnLabel", map);
     }
 
-    @Test
     public void testGetType() throws SQLException {
         when(mockResultSet.getType()).thenReturn(ResultSet.TYPE_SCROLL_INSENSITIVE);
         BaseResultSetHandler<Integer> handler = new BaseResultSetHandler<Integer>() {
@@ -2427,7 +2252,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getType();
     }
 
-    @Test
     public void testGetUnicodeStreamByIndex() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getUnicodeStream(1)).thenReturn(inputStream);
@@ -2441,7 +2265,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getUnicodeStream(1);
     }
 
-    @Test
     public void testGetUnicodeStreamByLabel() throws SQLException {
         InputStream inputStream = mock(InputStream.class);
         when(mockResultSet.getUnicodeStream("columnLabel")).thenReturn(inputStream);
@@ -2455,7 +2278,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getUnicodeStream("columnLabel");
     }
 
-    @Test
     public void testInsertRow() throws SQLException {
         BaseResultSetHandler<Void> handler = new BaseResultSetHandler<Void>() {
             @Override
@@ -2468,7 +2290,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).insertRow();
     }
 
-    @Test
     public void testIsBeforeFirst() throws SQLException {
         when(mockResultSet.isBeforeFirst()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2481,7 +2302,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isBeforeFirst();
     }
 
-    @Test
     public void testIsClosed() throws SQLException {
         when(mockResultSet.isClosed()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2494,7 +2314,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).isClosed();
     }
 
-    @Test
     public void testLast() throws SQLException {
         when(mockResultSet.last()).thenReturn(true);
         BaseResultSetHandler<Boolean> handler = new BaseResultSetHandler<Boolean>() {
@@ -2507,7 +2326,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).last();
     }
 
-    @Test
     public void testGetArrayByIndex() throws SQLException {
         Array array = mock(Array.class);
         when(mockResultSet.getArray(1)).thenReturn(array);
@@ -2521,7 +2339,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getArray(1);
     }
 
-    @Test
     public void testGetArrayByLabel() throws SQLException {
         Array array = mock(Array.class);
         when(mockResultSet.getArray("columnLabel")).thenReturn(array);
@@ -2535,7 +2352,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getArray("columnLabel");
     }
 
-    @Test
     public void testGetRowIdByIndex() throws SQLException {
         RowId rowId = mock(RowId.class);
         when(mockResultSet.getRowId(1)).thenReturn(rowId);
@@ -2549,7 +2365,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getRowId(1);
     }
 
-    @Test
     public void testGetRowIdByLabel() throws SQLException {
         RowId rowId = mock(RowId.class);
         when(mockResultSet.getRowId("columnLabel")).thenReturn(rowId);
@@ -2563,7 +2378,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getRowId("columnLabel");
     }
 
-    @Test
     public void testGetSQLXMLByIndex() throws SQLException {
         SQLXML sqlxml = mock(SQLXML.class);
         when(mockResultSet.getSQLXML(1)).thenReturn(sqlxml);
@@ -2577,7 +2391,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getSQLXML(1);
     }
 
-    @Test
     public void testGetSQLXMLByLabel() throws SQLException {
         SQLXML sqlxml = mock(SQLXML.class);
         when(mockResultSet.getSQLXML("columnLabel")).thenReturn(sqlxml);
@@ -2591,7 +2404,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getSQLXML("columnLabel");
     }
 
-    @Test
     public void testGetTimeByIndex() throws SQLException {
         Time time = new Time(System.currentTimeMillis());
         when(mockResultSet.getTime(1)).thenReturn(time);
@@ -2605,7 +2417,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTime(1);
     }
 
-    @Test
     public void testGetTimeByLabel() throws SQLException {
         Time time = new Time(System.currentTimeMillis());
         when(mockResultSet.getTime("columnLabel")).thenReturn(time);
@@ -2619,7 +2430,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTime("columnLabel");
     }
 
-    @Test
     public void testGetTimestampByIndex() throws SQLException {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         when(mockResultSet.getTimestamp(1)).thenReturn(timestamp);
@@ -2633,7 +2443,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTimestamp(1);
     }
 
-    @Test
     public void testGetTimestampByLabel() throws SQLException {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         when(mockResultSet.getTimestamp("columnLabel")).thenReturn(timestamp);
@@ -2647,7 +2456,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTimestamp("columnLabel");
     }
 
-    @Test
     public void testGetTimeByIndexWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Time time = new Time(System.currentTimeMillis());
@@ -2662,7 +2470,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTime(1, cal);
     }
 
-    @Test
     public void testGetTimeByLabelWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Time time = new Time(System.currentTimeMillis());
@@ -2677,7 +2484,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTime("columnLabel", cal);
     }
 
-    @Test
     public void testGetTimestampByIndexWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -2692,7 +2498,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTimestamp(1, cal);
     }
 
-    @Test
     public void testGetTimestampByLabelWithCalendar() throws SQLException {
         Calendar cal = Calendar.getInstance();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -2707,7 +2512,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getTimestamp("columnLabel", cal);
     }
 
-    @Test
     public void testGetURLByIndex() throws Exception {
         URL url = new URL("http://example.com");
         when(mockResultSet.getURL(1)).thenReturn(url);
@@ -2721,7 +2525,6 @@ public final class BaseResultSetHandlerTest extends BaseTestCase {
         verify(mockResultSet).getURL(1);
     }
 
-    @Test
     public void testGetURLByLabel() throws Exception {
         URL url = new URL("http://example.com");
         when(mockResultSet.getURL("columnLabel")).thenReturn(url);
