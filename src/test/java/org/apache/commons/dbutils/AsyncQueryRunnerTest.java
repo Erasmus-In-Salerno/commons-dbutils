@@ -379,7 +379,7 @@ public class AsyncQueryRunnerTest {
         runner.insert(conn, "4", handler, "param1");
 
         // give the Executor time to submit all insert statements. Otherwise the following verify statements will fail from time to time.
-        TimeUnit.MILLISECONDS.sleep(50);
+        TimeUnit.MILLISECONDS.sleep(200);
 
         verify(mockQueryRunner).insert("1", handler);
         verify(mockQueryRunner).insert("2", handler, "param1");
@@ -486,5 +486,28 @@ public class AsyncQueryRunnerTest {
     @Test
     public void testTooManyParamsUpdate() throws Exception {
         callUpdateWithException("unit", "test", "fail");
+    }
+
+    @Test
+    public void testQueryCallableStatementCall() throws Exception {
+
+        String sql = "SELECT * FROM table";
+        Object[] params = new Object[]{1, "Test"};
+        boolean closeConn = true;
+        BaseResultSetHandler<String> handler = new BaseResultSetHandler<String>() {
+            @Override
+            public String handle() throws SQLException {
+                return getString("columnLabel");
+            }
+        };
+
+        when(prepStmt.executeQuery()).thenReturn(results);
+
+        // it is assumed that there is a createQueryCallableStatement method in the AsyncQueryRunner class.
+        AsyncQueryRunner.QueryCallableStatement<String> instance = runner.new QueryCallableStatement<>(conn, closeConn, prepStmt, handler, sql, params);
+        instance.call();
+
+        verify(prepStmt, times(1)).executeQuery();
+        verify(conn, times(1)).close();
     }
 }

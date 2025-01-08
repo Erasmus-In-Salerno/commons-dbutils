@@ -17,17 +17,13 @@
 package org.apache.commons.dbutils;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.*;
 import java.util.Properties;
 
 import org.junit.After;
@@ -69,6 +65,54 @@ public class DbUtilsTest {
             verify(mockedDriver).connect(url, props);
             proxy.getPropertyInfo(url, props);
             verify(mockedDriver).getPropertyInfo(url, props);
+        }
+
+
+        @Test
+        public void acceptsURLCallsAdaptedDriver() throws SQLException {
+            final String url = "jdbc:test";
+            proxy.acceptsURL(url);
+            verify(mockedDriver).acceptsURL(url);
+        }
+
+        @Test
+        public void connectCallsAdaptedDriver() throws SQLException {
+            final String url = "jdbc:test";
+            final Properties props = new Properties();
+            proxy.connect(url, props);
+            verify(mockedDriver).connect(url, props);
+        }
+
+        @Test
+        public void getMajorVersionCallsAdaptedDriver() {
+            proxy.getMajorVersion();
+            verify(mockedDriver).getMajorVersion();
+        }
+
+        @Test
+        public void getMinorVersionCallsAdaptedDriver() {
+            proxy.getMinorVersion();
+            verify(mockedDriver).getMinorVersion();
+        }
+
+        @Test
+        public void getParentLoggerCallsAdaptedDriver() throws SQLFeatureNotSupportedException {
+            proxy.getParentLogger();
+            verify(mockedDriver).getParentLogger();
+        }
+
+        @Test
+        public void getPropertyInfoCallsAdaptedDriver() throws SQLException {
+            final String url = "jdbc:test";
+            final Properties props = new Properties();
+            proxy.getPropertyInfo(url, props);
+            verify(mockedDriver).getPropertyInfo(url, props);
+        }
+
+        @Test
+        public void jdbcCompliantCallsAdaptedDriver() {
+            proxy.jdbcCompliant();
+            verify(mockedDriver).jdbcCompliant();
         }
     }
 
@@ -361,5 +405,54 @@ public class DbUtilsTest {
         doThrow(SQLException.class).when(mockConnection).rollback();
         DbUtils.rollbackQuietly(mockConnection);
         verify(mockConnection).rollback();
+    }
+
+    @Test
+    public void loadDriverWithInvalidDriverClassNameReturnsFalse() {
+        assertFalse(DbUtils.loadDriver("invalid.Driver"));
+    }
+
+    @Test
+    public void loadDriverWithNonDriverClassReturnsFalse() {
+        assertFalse(DbUtils.loadDriver("java.lang.String"));
+    }
+
+    @Test
+    public void loadDriverWithNullClassLoaderReturnsFalse() {
+        assertFalse(DbUtils.loadDriver(null, "org.h2.Driver"));
+    }
+
+    @Test
+    public void loadDriverWithNullDriverClassNameReturnsFalse() {
+        assertFalse(DbUtils.loadDriver(DbUtils.class.getClassLoader(), null));
+    }
+
+    @Test
+    public void printStackTracePrintsSQLException() {
+        SQLException sqlException = new SQLException("Test exception");
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        DbUtils.printStackTrace(sqlException, pw);
+        assertTrue(sw.toString().contains("Test exception"));
+    }
+
+    @Test
+    public void printWarningsPrintsConnectionWarnings() throws SQLException {
+        Connection mockConnection = mock(Connection.class);
+        SQLWarning warning = new SQLWarning("Test warning");
+        when(mockConnection.getWarnings()).thenReturn(warning);
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        DbUtils.printWarnings(mockConnection, pw);
+        assertTrue(sw.toString().contains("Test warning"));
+    }
+
+    @Test
+    public void printWarningsWithNullConnectionDoesNotThrowException() {
+        try {
+            DbUtils.printWarnings(null, new PrintWriter(System.err));
+        } catch (Exception e) {
+            fail("An exception was thrown: " + e.getMessage());
+        }
     }
 }
