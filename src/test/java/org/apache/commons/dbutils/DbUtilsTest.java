@@ -23,6 +23,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -30,8 +31,12 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.sql.SQLWarning;
 import java.sql.Statement;
 import java.util.Properties;
+
+
 
 import org.junit.After;
 import org.junit.Before;
