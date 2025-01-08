@@ -32,4 +32,5 @@
   <suppress checks="VisibilityModifier" files="AbstractQueryRunner" lines="54"/>
   <suppress checks="VisibilityModifier" files="KeyedHandler" lines="58, 63, 69"/>
   <suppress checks=".*" files=".*[/\\]RegressionTest.*\.java" />
+  <suppress checks="FileLength" files="BaseResultSetHandlerTest.java" />
 </suppressions>
