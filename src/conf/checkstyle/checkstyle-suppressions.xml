@@ -33,4 +33,5 @@
   <suppress checks="VisibilityModifier" files="KeyedHandler" lines="58, 63, 69"/>
   <suppress checks=".*" files=".*[/\\]RegressionTest.*\.java" />
   <suppress checks="FileLength" files="BaseResultSetHandlerTest.java" />
+  <suppress checks="ImportOrder" files="BaseResultSetHandlerTest.java" />
 </suppressions>
